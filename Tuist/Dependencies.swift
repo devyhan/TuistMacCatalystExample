@@ -12,6 +12,6 @@ let spmPackages: Array<Package> = [
 ]
 
 let dependencies = Dependencies(
-  swiftPackageManager: .init(spmPackages),
-  platforms: [.iOS]
+  swiftPackageManager: .init(spmPackages)//,
+//  platforms: [.iOS]
 )

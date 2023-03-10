@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import Get
+//import Get
 
 struct User: Codable {
   let userId: Int
@@ -24,20 +24,20 @@ struct ContentView: View {
       }
     }
     .padding()
-    .task {
-      await sampleTask()
-    }
+//    .task {
+//      await sampleTask()
+//    }
   }
 
-  func sampleTask() async {
-    do {
-      let client = APIClient(baseURL: URL(string: "https://jsonplaceholder.typicode.com"))
-      let user: User = try await client.send(Request(path: "/todos/\(1 + .random(in: 0...100))")).value
-      self.user = user
-    } catch let error {
-      print("\(error)")
-    }
-  }
+//  func sampleTask() async {
+//    do {
+//      let client = APIClient(baseURL: URL(string: "https://jsonplaceholder.typicode.com"))
+//      let user: User = try await client.send(Request(path: "/todos/\(1 + .random(in: 0...100))")).value
+//      self.user = user
+//    } catch let error {
+//      print("\(error)")
+//    }
+//  }
 }
 
 struct ContentView_Previews: PreviewProvider {

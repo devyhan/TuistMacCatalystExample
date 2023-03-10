@@ -25,10 +25,13 @@ extension Project {
                 platform: platform,
                 product: .framework,
                 bundleId: "io.tuist.\(name)",
+                deploymentTarget: .macOS(targetVersion: "14.0", isMacCatalystApp: true), // .iOS(targetVersion: "14.0", devices: [.mac, .ipad, .iphone])
                 infoPlist: .default,
                 sources: ["Targets/\(name)/Sources/**"],
                 resources: [],
-                dependencies: [.external(name: "Get")])
+                entitlements: .relativeToRoot("TuistMacCatalystExample.entitlements"),
+                dependencies: [])
+//                dependencies: [.external(name: "Get")])
         let tests = Target(name: "\(name)Tests",
                 platform: platform,
                 product: .unitTests,
@@ -55,9 +58,11 @@ extension Project {
             platform: platform,
             product: .app,
             bundleId: "io.tuist.\(name)",
+            deploymentTarget: .macOS(targetVersion: "14.0", isMacCatalystApp: true),
             infoPlist: .extendingDefault(with: infoPlist),
             sources: ["Targets/\(name)/Sources/**"],
             resources: ["Targets/\(name)/Resources/**"],
+            entitlements: .relativeToRoot("TuistMacCatalystExample.entitlements"),
             dependencies: dependencies
         )
 
